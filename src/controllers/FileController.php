@@ -19,7 +19,7 @@ class FileController extends Controller
     {
         $module = $this->module;
         return [
-            'upload'=>[
+            'index'=>[
                 'class'=>'dungang\inlineattachment\actions\UploadAction',
                 'accept' => $module->accept
             ]

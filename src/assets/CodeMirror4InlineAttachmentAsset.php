@@ -14,19 +14,14 @@ class CodeMirror4InlineAttachmentAsset extends AssetBundle
 {
     public $sourcePath = '@bower/inline-attachment/dist';
 
+    public $depends = ['dungang\inlineattachment\assets\InlineAttachmentAsset'];
+
     public function init()
     {
         if(YII_DEBUG) {
             $this->js = ['codemirror-4.inline-attachment.js'];
-            $this->publishOptions = [
-                'only'=>['codemirror-4.inline-attachment.js']
-            ];
-
         } else {
             $this->js = ['codemirror-4.inline-attachment.min.js'];
-            $this->publishOptions = [
-                'only'=>['codemirror-4.inline-attachment.min.js']
-            ];
         }
     }
 }

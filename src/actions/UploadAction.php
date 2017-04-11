@@ -28,15 +28,13 @@ class UploadAction extends Action
                 $file = $rst['object'];
                 return Json::encode([
                     'success'=>true,
-                    'url'=>$file->url,
-                    'place'=>$file->provider,
-                    'path'=>$file->object,
+                    'filename'=>$file->url
                 ]);
 
             } else {
                 return Json::encode([
                     'success'=>false,
-                    'message' => $rst['message']
+                    'error' => $rst['message']
                 ]);
             }
 
@@ -44,7 +42,7 @@ class UploadAction extends Action
 
         return Json::encode([
             'success'=>false,
-            'message' => '请求不正确'
+            'error' => '请求不正确'
         ]);
     }
 }

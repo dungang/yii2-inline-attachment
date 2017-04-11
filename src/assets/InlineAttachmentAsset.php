@@ -18,15 +18,8 @@ class InlineAttachmentAsset extends AssetBundle{
     {
         if(YII_DEBUG) {
             $this->js = ['inline-attachment.js'];
-            $this->publishOptions = [
-                'only'=>['inline-attachment.js']
-            ];
-
         } else {
             $this->js = ['inline-attachment.min.js'];
-            $this->publishOptions = [
-                'only'=>['inline-attachment.min.js']
-            ];
         }
     }
 }

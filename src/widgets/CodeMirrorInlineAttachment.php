@@ -15,13 +15,13 @@ use yii\widgets\InputWidget;
 
 class CodeMirrorInlineAttachment extends InputWidget
 {
-
     public $version = '4'; //3,4s
 
     public $clientOptions = [];
 
     public function run()
     {
+
         $this->clientOptions = ArrayHelper::merge([
             'lineNumbers'=>true,
             'matchBrackets'=> true,
@@ -33,18 +33,21 @@ class CodeMirrorInlineAttachment extends InputWidget
         if(empty($this->clientOptions['uploadUrl'])) {
             $this->clientOptions['uploadUrl'] = Url::to('/inline-attachment/file');
         }
-        $id = $this->options['id'];
+
         $inlineAttachment = 'dungang\inlineattachment\assets\CodeMirror'.$this->version.'InlineAttachmentAsset';
         call_user_func($inlineAttachment . '::register',$this->view);
         $options = Json::encode($this->clientOptions);
+
+        $id = $this->options['id'];
         $this->view->
         registerJs("inlineAttachment.editors.codemirror$this->version.attach(
-        CodeMirror.fromTextArea(document.getElementById('$id',$options))
-        );");
+            CodeMirror.fromTextArea(document.getElementById('$id'),$options)
+            );");
         if ($this->hasModel()) {
             return Html::activeTextarea($this->model, $this->attribute, $this->options);
         } else {
             return Html::textarea($this->id, $this->value, $this->options);
         }
+
     }
 }
