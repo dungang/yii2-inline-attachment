@@ -2,7 +2,6 @@
   "name": "dungang/yii2-inline-attachment",
   "description": "Easily paste and upload files/images in plain textareas http://git.razko.nl/InlineAttachment",
   "license": "MIT",
-  "minimum-stability": "dev",
   "authors": [
     {
       "name": "dun gang",
@@ -14,7 +13,7 @@
   "require": {
     "php": ">=5.4.0",
     "yiisoft/yii2": "~2.0.5",
-    "dungang/yii2-file-storage": "dev-master",
+    "dungang/yii2-file-storage": "*",
     "bower-asset/inline-attachment": "~2.0"
   },
   "autoload": {
